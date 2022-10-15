@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def index(request):
@@ -19,3 +19,6 @@ def Login(request):
         except:
             error = 'yes' 
     return render(request,'login.html',locals())
+
+def dashboard(request):
+    return render(request,'dashboard.html')
