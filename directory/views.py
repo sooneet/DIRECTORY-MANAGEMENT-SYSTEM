@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
+
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -22,3 +23,7 @@ def Login(request):
 
 def dashboard(request):
     return render(request,'dashboard.html')
+
+def Logout(request):
+    logout(request)
+    return redirect('index')
