@@ -24,6 +24,39 @@ def Login(request):
 def dashboard(request):
     return render(request,'dashboard.html')
 
+def add_directory(request):
+    return render(request,'add_directory.html')
+
+def manage_directory(request):
+    return render(request,'manage_directory.html')
+
+def edit_directory(request):
+    return render(request,'edit_directory.html')
+
+def delete_directory(request):
+    pass
+
+def search_directory(request):
+    return render(request,'search_directory.html')
+
+def view_search_data(request):
+    return render(request,'view_search_data.html')
+
+def all_record(request):
+    return render(request,'all_record.html')
+
+def private_record(request):
+    return render(request,'private_record.html')
+
+def public_record(request):
+    return render(request,'public_record.html')
+
+def view_all_record(request):
+    return render(request,'view_all_record.html')
+
+def change_password(request):
+    return render(request,'change_password.html')
+
 def Logout(request):
     logout(request)
     return redirect('index')
