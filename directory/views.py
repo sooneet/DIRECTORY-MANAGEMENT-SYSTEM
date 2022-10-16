@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
-
+from django.db.models import Q
 from directory.models import UserDetails
 
 # Create your views here.
@@ -129,7 +129,20 @@ def delete_directory(request,pid):
 
 
 def search_directory(request):
-    return render(request,'search_directory.html')
+    if not request.user.is_authenticated:
+        return redirect('admin-login')   
+    sd = None
+    if request.method == 'POST':
+        sd = request.POST.get('searchdata')
+        try:
+            userdetail = UserDetails.objects.filter(
+                                        Q(FirstName__icontains=sd)|
+                                        Q(LastName=sd)|
+                                        Q(Contact=sd)
+                                    )
+        except:
+            userdetail = ''
+    return render(request,'search_directory.html',locals())
 
 def view_search_data(request):
     return render(request,'view_search_data.html')
