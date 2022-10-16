@@ -39,9 +39,14 @@
                     <td>{{i.FirstName}} {{i.LastName}}</td>
                     <td>{{i.Contact}}</td>
                     <td>{{i.Email}}</td>
-                    <td><a href="{% url 'edit_Directory' i.id %}" class="text-primary">Edit Detail</a> | <a
-                            onclick="return confirm('Are you sure to Delete')" href="{% url 'deleteDirectory' i.id %}"
-                            class="text-danger">Delete</a></td>
+                    <td>
+                        <a href="{% url 'edit-directory' i.id %}" class="text-primary">
+                            Edit Detail
+                        </a> | 
+                        <a onclick="return confirm('Are you sure to Delete')" href="/deleteDirectory" class="text-danger">
+                            Delete
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
                 </tbody>

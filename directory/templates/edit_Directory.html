@@ -54,25 +54,20 @@
                     <label>Place of Birth</label>
                     <select name="placeofBirth" class="form-control">
                         <option value="">--- Select Place of Birth ---</option>
-                        <option value="Indore" {% if userdetail.placeofBirth == 'Indore' %} selected {% endif %}>Indore</option>
-                        <option value="Bhopal" {% if userdetail.placeofBirth == 'Bhopal' %} selected {% endif %}>Bhopal</option>
-                        <option value="Jabalpur" {% if userdetail.placeofBirth == 'Jabalpur' %} selected {% endif %}>Jabalpur</option>
-                        <option value="Gwalior" {% if userdetail.placeofBirth == 'Gwalior' %} selected {% endif %}>Gwalior</option>
-                        <option value="Ujjain" {% if userdetail.placeofBirth == 'Ujjain' %} selected {% endif %}>Ujjain</option>
-                        <option value="Dewas" {% if userdetail.placeofBirth == 'Dewas' %} selected {% endif %}>Dewas</option>
-                        <option value="Katni" {% if userdetail.placeofBirth == 'Katni' %} selected {% endif %}>Katni</option>
-                        <option value="Satna" {% if userdetail.placeofBirth == 'Satna' %} selected {% endif %}>Satna</option>
-                        <option value="Sagar" {% if userdetail.placeofBirth == 'Sagar' %} selected {% endif %}>Sagar</option>
-                        <option value="Rewa" {% if userdetail.placeofBirth == 'Rewa' %} selected {% endif %}>Rewa</option>
+                        <option value="Indore" {% if userdetail.placeofBirth == 'Birgunj' %} selected {% endif %}>Birgunj</option>
+                        <option value="Bhopal" {% if userdetail.placeofBirth == 'Pokhara' %} selected {% endif %}>Pokhara</option>
+                        <option value="Jabalpur" {% if userdetail.placeofBirth == 'Kathmandu' %} selected {% endif %}>Kathmandu</option>
+                        <option value="Gwalior" {% if userdetail.placeofBirth == 'Biratnagar' %} selected {% endif %}>Biratnagar</option>
+                        <option value="Ujjain" {% if userdetail.placeofBirth == 'Janakpur' %} selected {% endif %}>Janakpur</option>
                     </select>
 
                     <label>Place of Work [{{userdetail.placeofWork}}]</label>
                     <select name="placeofWork" class="form-control" size="5" multiple>
-                        <option value="Indore">Indore</option>
-                        <option value="Bhopal">Bhopal</option>
-                        <option value="Jabalpur">Jabalpur</option>
-                        <option value="Gwalior">Gwalior</option>
-                        <option value="Ujjain">Ujjain</option>
+                        <option value="Birgunj">Birgunj</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Biratnagar">Biratnagar</option>
+                        <option value="Janakpur">Janakpur</option>
                     </select>
 
                     <label>Profession</label>
@@ -83,7 +78,7 @@
 
                     <label>Status</label>
                     <select name="status" class="form-control">
-                        <option value="private" {% if userdetail.status == 'private' %} selected {% endif %}>Private</option>
+                        <option value="private" {% if userdetail.status == 'private' %} selected {% endif %} >Private</option>
                         <option value="public" {% if userdetail.status == 'public' %} selected {% endif %}>Public</option>
                     </select>
 

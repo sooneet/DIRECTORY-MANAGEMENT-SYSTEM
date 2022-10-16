@@ -13,8 +13,8 @@ urlpatterns = [
 
     path('add-directory/', views.add_directory,name='add-directory'),
     path('manage-directory/', views.manage_directory,name='manage-directory'),
-    path('edit-directory/', views.edit_directory,name='edit-directory'),
-    path('delete-directory/', views.delete_directory,name='delete-directory'),
+    path('edit-directory/<int:pid>/', views.edit_directory,name='edit-directory'),
+    path('delete-directory/<int:pid>/', views.delete_directory,name='delete-directory'),
     path('search-directory/', views.search_directory,name='search-directory'),
 
     path('all-record/', views.all_record,name='all-record'),
