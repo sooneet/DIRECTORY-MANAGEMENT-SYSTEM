@@ -43,7 +43,7 @@ border-radius:10px;
 <body>
 
 <div class="container mt-5">
-    <form name="search" method="post">
+    {% comment %} <form name="search" method="post">
         {% csrf_token %}
         <!-- Jumbotron Header -->
         <div class="card my-4" style="border : 2px ridge green">
@@ -60,7 +60,7 @@ border-radius:10px;
                 </div>
             </div>
         </div>
-    </form>
+    </form> {% endcomment %}
 
     <div class="row">
         {% for i in userdetail %}
@@ -75,7 +75,7 @@ border-radius:10px;
                     <div><span style="color: teal"><b>Address :</b></span> {{i.Address}}</div>
                 </div>
                 <div class="card-footer bg-dark">
-                    <a href="/viewSearchData">View Details >></a>
+                    <a href="{% url 'view-search-data' i.id %}">View Details >></a>
                 </div>
             </div>
 

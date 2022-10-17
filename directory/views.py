@@ -2,10 +2,12 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from django.db.models import Q
 from directory.models import UserDetails
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    userdetail = UserDetails.objects.filter(status='public')           
+    return render(request,'index.html',locals())
 
 def Login(request):
     error = ''
@@ -144,23 +146,54 @@ def search_directory(request):
             userdetail = ''
     return render(request,'search_directory.html',locals())
 
-def view_search_data(request):
-    return render(request,'view_search_data.html')
+def view_search_data(request,pid):
+    userdetail = UserDetails.objects.get(id=pid)
+    return render(request,'view_search_data.html',locals())
 
 def all_record(request):
-    return render(request,'all_record.html')
+    if not request.user.is_authenticated:
+        return redirect('admin-login') 
+    userdetail = UserDetails.objects.all()             
+    return render(request,'all_record.html',locals())
 
 def private_record(request):
-    return render(request,'private_record.html')
+    if not request.user.is_authenticated:
+        return redirect('admin-login') 
+    userdetail = UserDetails.objects.filter(status='private')             
+    return render(request,'private_record.html',locals())
 
 def public_record(request):
-    return render(request,'public_record.html')
+    if not request.user.is_authenticated:
+        return redirect('admin-login') 
+    userdetail = UserDetails.objects.filter(status='public')         
+    return render(request,'public_record.html',locals())
 
-def view_all_record(request):
-    return render(request,'view_all_record.html')
+def view_all_record(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('admin-login') 
+    userdetail = UserDetails.objects.get(id=pid)         
+    return render(request,'view_all_record.html',locals())
 
 def change_password(request):
-    return render(request,'change_password.html')
+    if not request.user.is_authenticated:
+        return redirect('login')
+    error = ''   
+    user = request.user     
+    if request.method == 'POST':
+        # print(request.POST)
+        o = request.POST.get('oldpassword')
+        n = request.POST.get('newpassword')
+        u = User.objects.get(id=request.user.id)
+        try:
+            if user.check_password(o):
+                u.set_password(n)
+                u.save()
+                error = 'no'
+            else:
+                error = 'not'    
+        except:
+            error = 'yes'        
+    return render(request,'change_password.html',locals())
 
 def Logout(request):
     logout(request)

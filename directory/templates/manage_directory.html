@@ -43,7 +43,7 @@
                         <a href="{% url 'edit-directory' i.id %}" class="text-primary">
                             Edit Detail
                         </a> | 
-                        <a onclick="return confirm('Are you sure to Delete')" href="/deleteDirectory" class="text-danger">
+                        <a onclick="return confirm('Are you sure to Delete')" href="{% url 'delete-directory' i.id %}" class="text-danger">
                             Delete
                         </a>
                     </td>

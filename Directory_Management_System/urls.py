@@ -20,8 +20,8 @@ urlpatterns = [
     path('all-record/', views.all_record,name='all-record'),
     path('private-record/', views.private_record,name='private-record'),
     path('public-record/', views.public_record,name='public-record'),
-    path('view-all-record/', views.view_all_record,name='view-all-record'),
-    path('view-search-data/', views.view_search_data,name='view-search-data'),
+    path('view-all-record/<int:pid>/', views.view_all_record,name='view-all-record'),
+    path('view-search-data/<int:pid>/', views.view_search_data,name='view-search-data'),
 
     path('change-password/', views.change_password,name='change-password'),
 

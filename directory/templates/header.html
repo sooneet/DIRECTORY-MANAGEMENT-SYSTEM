@@ -84,7 +84,7 @@ marquee ul li:hover {
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">Accounts</span>
                 <div class="dropdown-divider"></div>
-                <a href="/logout" class="dropdown-item"> <i
+                <a href="{% url 'logout' %}" class="dropdown-item"> <i
                         class="fas fa-users mr-2"></i>Logout
                 </a>
                 <div class="dropdown-divider"></div>
@@ -126,14 +126,14 @@ marquee ul li:hover {
                        role="button" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="nav-icon fas fa-folder-open"></i> Directory </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item bg-dark" href="/add_Directory"> Add Directory</a> <a
-                            class="dropdown-item bg-dark" href="/manage_Directory"> Manage Directory</a>
+                        <a class="dropdown-item bg-dark" href="{% url 'add-directory' %}"> Add Directory</a> <a
+                            class="dropdown-item bg-dark" href="{% url 'manage-directory' %}"> Manage Directory</a>
                     </div>
                 </li>
 
 
 
-                <li class="nav-item"><a href="/search_Directory" class="nav-link">
+                <li class="nav-item"><a href="{% url 'search-directory' %}" class="nav-link">
                     <i class="nav-icon fas fa-search"></i>
                     <p>Search Directory</p>
                 </a></li>
@@ -143,9 +143,9 @@ marquee ul li:hover {
                         role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"> <i class="nav-icon fas fa-file"></i> Directory by Status </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item bg-dark" href="/allRecord">All Records</a>
-                        <a class="dropdown-item bg-dark" href="/privateRecord">Private</a>
-                        <a class="dropdown-item bg-dark" href="/publicRecord">Public</a>
+                        <a class="dropdown-item bg-dark" href="{% url 'all-record' %}">All Records</a>
+                        <a class="dropdown-item bg-dark" href="{% url 'private-record' %} ">Private</a>
+                        <a class="dropdown-item bg-dark" href="{% url 'public-record' %}">Public</a>
                     </div>
                 </li>
 
@@ -154,7 +154,7 @@ marquee ul li:hover {
                     <p>Change Password</p>
                 </a></li>
 
-                 <li class="nav-item"><a href="/logout" class="nav-link">
+                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">
                     <i class="nav-icon fas fa-power-off"></i>
                     <p>Logout</p>
                 </a></li>
